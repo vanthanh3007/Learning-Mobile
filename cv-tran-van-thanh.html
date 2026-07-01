@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV - Trần Văn Thanh | Senior Mobile Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            primary: '#18181B',
+            secondary: '#3F3F46',
+            accent: '#2563EB',
+            surface: '#FAFAFA',
+            border: '#E4E4E7',
+            muted: '#71717A',
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
+    @media print {
+      body { background: white !important; }
+      .no-print { display: none !important; }
+    }
+  </style>
+</head>
+<body class="font-body bg-surface text-primary min-h-screen">
+
+  <!-- Print button -->
+  <div class="no-print fixed top-4 right-4 z-10">
+    <button
+      onclick="window.print()"
+      class="flex items-center gap-2 bg-accent text-white px-4 py-2 rounded-lg text-sm font-medium cursor-pointer hover:bg-blue-700 transition-colors duration-200 shadow-md"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+      </svg>
+      In / Xuất PDF
+    </button>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Header -->
+    <header class="border-b border-border pb-8 mb-8">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div>
+          <p class="text-accent font-heading font-500 text-sm tracking-widest uppercase mb-1">Senior Mobile Developer</p>
+          <h1 class="font-heading font-700 text-4xl md:text-5xl text-primary leading-tight">
+            Trần Văn Thanh
+          </h1>
+        </div>
+
+        <!-- Contact -->
+        <div class="flex flex-col gap-2 text-sm text-secondary">
+          <a href="mailto:vanthanh300798@gmail.com" class="flex items-center gap-2 hover:text-accent transition-colors duration-200 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            vanthanh300798@gmail.com
+          </a>
+          <a href="https://github.com/vanthanh3007" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-accent transition-colors duration-200 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            github.com/vanthanh3007
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Left column -->
+      <aside class="md:col-span-1 flex flex-col gap-8">
+
+        <!-- Skills -->
+        <section>
+          <h2 class="font-heading font-600 text-xs tracking-widest uppercase text-muted mb-4">Kỹ Năng</h2>
+
+          <div class="flex flex-col gap-4">
+            <div>
+              <p class="text-xs font-medium text-secondary uppercase tracking-wide mb-2">Mobile</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="bg-primary text-white text-xs px-2.5 py-1 rounded-md font-medium">Flutter</span>
+                <span class="bg-primary text-white text-xs px-2.5 py-1 rounded-md font-medium">React Native</span>
+                <span class="bg-primary text-white text-xs px-2.5 py-1 rounded-md font-medium">Expo</span>
+              </div>
+            </div>
+
+            <div>
+              <p class="text-xs font-medium text-secondary uppercase tracking-wide mb-2">Frontend</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="border border-border text-primary text-xs px-2.5 py-1 rounded-md font-medium">React JS</span>
+              </div>
+            </div>
+
+            <div>
+              <p class="text-xs font-medium text-secondary uppercase tracking-wide mb-2">Services & Integration</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="border border-border text-primary text-xs px-2.5 py-1 rounded-md font-medium">Firebase</span>
+                <span class="border border-border text-primary text-xs px-2.5 py-1 rounded-md font-medium">RESTful API</span>
+              </div>
+            </div>
+
+            <div>
+              <p class="text-xs font-medium text-secondary uppercase tracking-wide mb-2">Mobile Features</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="border border-border text-primary text-xs px-2.5 py-1 rounded-md font-medium">Push Notification</span>
+                <span class="border border-border text-primary text-xs px-2.5 py-1 rounded-md font-medium">Deep Link</span>
+                <span class="border border-border text-primary text-xs px-2.5 py-1 rounded-md font-medium">AppsFlyer</span>
+                <span class="border border-border text-primary text-xs px-2.5 py-1 rounded-md font-medium">Location</span>
+                <span class="border border-border text-primary text-xs px-2.5 py-1 rounded-md font-medium">App Store Upload</span>
+                <span class="border border-border text-primary text-xs px-2.5 py-1 rounded-md font-medium">Dynamic UI</span>
+                <span class="border border-border text-primary text-xs px-2.5 py-1 rounded-md font-medium">Forms</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Education -->
+        <section>
+          <h2 class="font-heading font-600 text-xs tracking-widest uppercase text-muted mb-4">Học Vấn</h2>
+          <div>
+            <p class="font-medium text-sm text-primary">Cao đẳng Khoa học Tự nhiên</p>
+            <p class="text-sm text-secondary mt-0.5">Công nghệ Thông tin</p>
+            <p class="text-xs text-muted mt-1">2016</p>
+          </div>
+        </section>
+
+      </aside>
+
+      <!-- Right column -->
+      <main class="md:col-span-2 flex flex-col gap-10">
+
+        <!-- Summary -->
+        <section>
+          <h2 class="font-heading font-600 text-xs tracking-widest uppercase text-muted mb-4">Tóm Tắt</h2>
+          <p class="text-secondary leading-relaxed text-sm">
+            Senior Mobile Developer với kinh nghiệm xây dựng ứng dụng di động đa nền tảng sử dụng Flutter và React Native. Có chuyên môn sâu về tích hợp dịch vụ thực tế như push notification, deep link, location service và publish app lên store. Đã tham gia phát triển các sản phẩm trong nhiều lĩnh vực: cho thuê xe, giao hàng, quản lý công việc và bán hàng.
+          </p>
+        </section>
+
+        <!-- Projects -->
+        <section>
+          <h2 class="font-heading font-600 text-xs tracking-widest uppercase text-muted mb-4">Dự Án</h2>
+          <div class="flex flex-col gap-6">
+
+            <!-- Sigo -->
+            <article class="group border-l-2 border-border hover:border-accent pl-4 transition-colors duration-200 cursor-default">
+              <div class="flex items-start justify-between gap-2 mb-1">
+                <h3 class="font-heading font-600 text-base text-primary">Sigo</h3>
+                <div class="flex gap-1.5">
+                  <span class="shrink-0 text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Mobile App</span>
+                  <span class="shrink-0 text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Web App</span>
+                </div>
+              </div>
+              <p class="text-xs text-accent font-medium mb-2">Cho thuê xe tự lái — Renter & Owner</p>
+              <p class="text-sm text-secondary leading-relaxed">
+                Nền tảng cho thuê xe tự lái với 2 luồng người dùng tách biệt: <strong>Renter</strong> (tìm kiếm, đặt xe) và <strong>Owner</strong> (quản lý xe, lịch trống, doanh thu). Flutter mobile (~911 Dart files, 96 Cubits) + React JS web.
+              </p>
+              <ul class="text-sm text-secondary leading-relaxed mt-2 list-disc list-inside space-y-1">
+                <li><strong>KYC bằng Google MLKit:</strong> OCR nhận dạng CMND/CCCD (text recognition), liveness check, xác thực bằng lái xe — toàn bộ xử lý trên thiết bị, không upload raw image.</li>
+                <li><strong>Dual mode:</strong> Owner có màn hình riêng hoàn toàn (MainOwnerScreen) với analytics doanh thu, quản lý đội xe, lịch bận theo từng ngày.</li>
+                <li><strong>Pricing engine:</strong> Tính giá động theo ngày thuê × đơn giá + phí giao xe + bảo hiểm + VAT − voucher, recalculate realtime khi user thay đổi thông tin.</li>
+                <li><strong>Calendar availability:</strong> Firebase Realtime DB sync lịch bận xe realtime — chủ xe cập nhật trên 1 thiết bị, customer thấy ngay.</li>
+                <li><strong>Thanh toán VietQR:</strong> Tích hợp VietQR API, quản lý ví, liên kết tài khoản ngân hàng, lịch sử giao dịch.</li>
+                <li><strong>Device fingerprinting:</strong> Mỗi request gửi kèm device ID + metadata để server phát hiện gian lận.</li>
+              </ul>
+              <div class="flex flex-wrap gap-1.5 mt-3">
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Flutter BLoC/Cubit</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Google MLKit OCR</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">VietQR</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Firebase Realtime DB</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Dual User Mode</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Google Maps</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">React JS</span>
+              </div>
+            </article>
+
+            <!-- Masu -->
+            <article class="group border-l-2 border-border hover:border-accent pl-4 transition-colors duration-200 cursor-default">
+              <div class="flex items-start justify-between gap-2 mb-1">
+                <h3 class="font-heading font-600 text-base text-primary">Masu</h3>
+                <span class="shrink-0 text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Mobile App</span>
+              </div>
+              <p class="text-xs text-accent font-medium mb-2">Hệ sinh thái giao hàng — Ship / Driver / Merchant</p>
+              <p class="text-sm text-secondary leading-relaxed">
+                Hệ sinh thái giao hàng gồm 3 Flutter app (~640 file/app): <strong>Ship</strong> (khách hàng đặt đơn), <strong>Driver</strong> (tài xế nhận và giao), <strong>Merchant</strong> (cửa hàng quản lý). Kiến trúc Clean Architecture + Repository Pattern, BLoC/Cubit scoped per screen, GetX cho DI và routing.
+              </p>
+              <ul class="text-sm text-secondary leading-relaxed mt-2 list-disc list-inside space-y-1">
+                <li><strong>Real-time tracking:</strong> Firebase Realtime Database — driver gửi GPS liên tục với smart filtering (time gate + distance gate), buffer offline queue 100 entries vào SharedPreferences khi mất mạng.</li>
+                <li><strong>Background GPS (Driver):</strong> Android foreground service + wakelock, iOS automotive activity type. Config tracking interval được server điều khiển qua ResponseSetting.</li>
+                <li><strong>FCM + Deep Link:</strong> Xử lý đủ 3 state (foreground/background/killed). Tap notification → parse URL → navigate đến đúng đơn hàng.</li>
+                <li><strong>Merchant menu CRUD:</strong> Hệ thống 3 tầng (group → product → attribute), drag-and-drop reorder, batch update, toggle visibility theo từng sản phẩm.</li>
+                <li><strong>Backend-driven actions:</strong> Action buttons (confirm/cancel/begin/end) do server quyết định qua DataButton flags — 3 app đồng bộ flow mà không cần release.</li>
+                <li><strong>API layer:</strong> Retrofit code generation + Dio interceptor tự inject Bearer token, device metadata, timezone vào mọi request.</li>
+              </ul>
+              <div class="flex flex-wrap gap-1.5 mt-3">
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Flutter BLoC/Cubit</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Clean Architecture</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Firebase Realtime DB</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Background GPS</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">FCM + Deep Link</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Retrofit + Dio</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Google Maps</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">GetX DI</span>
+              </div>
+            </article>
+
+            <!-- VFC 1, 2, 3 -->
+            <article class="group border-l-2 border-border hover:border-accent pl-4 transition-colors duration-200 cursor-default">
+              <div class="flex items-start justify-between gap-2 mb-1">
+                <h3 class="font-heading font-600 text-base text-primary">VFC Suite (1, 2, 3)</h3>
+                <span class="shrink-0 text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Mobile App</span>
+              </div>
+              <p class="text-xs text-accent font-medium mb-2">Quản lý công việc nội bộ</p>
+              <p class="text-sm text-secondary leading-relaxed">
+                Bộ 3 ứng dụng quản lý công việc cho nhân viên: bán hàng, khử trùng vệ sinh, và phòng tránh dịch bệnh tại nhà máy/xí nghiệp. Dynamic UI theo role, form phức tạp và báo cáo thực địa.
+              </p>
+            </article>
+
+            <!-- Coshare -->
+            <article class="group border-l-2 border-border hover:border-accent pl-4 transition-colors duration-200 cursor-default">
+              <div class="flex items-start justify-between gap-2 mb-1">
+                <h3 class="font-heading font-600 text-base text-primary">Coshare</h3>
+                <span class="shrink-0 text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Web App</span>
+              </div>
+              <p class="text-xs text-accent font-medium mb-2">Bán hàng nội bộ nhà máy</p>
+              <p class="text-sm text-secondary leading-relaxed">
+                Ứng dụng web bán hàng dành riêng cho nhân viên tại nhà máy, xí nghiệp. Xây dựng bằng React JS với tích hợp Firebase và RESTful API.
+              </p>
+            </article>
+
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-border mt-12 pt-6 text-center text-xs text-muted">
+      <p>Trần Văn Thanh &middot; Senior Mobile Developer &middot; vanthanh300798@gmail.com</p>
+    </footer>
+
+  </div>
+</body>
+</html>
