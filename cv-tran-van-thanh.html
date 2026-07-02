@@ -289,6 +289,36 @@
               </p>
             </article>
 
+            <!-- HV Quản Lý Tài Sản -->
+            <article class="group border-l-2 border-border hover:border-accent pl-4 transition-colors duration-200 cursor-default">
+              <div class="flex items-start justify-between gap-2 mb-1">
+                <h3 class="font-heading font-600 text-base text-primary">HV Quản Lý Tài Sản</h3>
+                <span class="shrink-0 text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Side Project · Full-stack Web</span>
+              </div>
+              <p class="text-xs text-accent font-medium mb-2">Hệ thống quản lý vòng đời tài sản — chuỗi nhà thuốc ~40 chi nhánh · AI-assisted development</p>
+              <p class="text-sm text-secondary leading-relaxed">
+                Full-stack web app quản lý tài sản doanh nghiệp: vòng đời tài sản (tạo → khấu hao → thanh lý), báo cáo sự cố với SLA 3 cấp, workflow phê duyệt chi phí, điều chuyển tài sản giữa chi nhánh. Thiết kế kiến trúc, viết spec và điều phối AI để implement.
+              </p>
+              <ul class="text-sm text-secondary leading-relaxed mt-2 list-disc list-inside space-y-1">
+                <li><strong>Monorepo:</strong> pnpm workspaces + Turborepo — frontend, backend, shared types trong một repo, CI/CD Railway.</li>
+                <li><strong>Real-time:</strong> Socket.IO (JWT auth middleware) — notification push tức thì khi tài sản thay đổi trạng thái, activity feed audit log.</li>
+                <li><strong>RBAC:</strong> 6 vai trò (admin, ops_manager, kế toán, nhân viên kho…) với permission guard ở cả backend (middleware) và frontend (route guard + menu visibility).</li>
+                <li><strong>SLA engine:</strong> Cấu hình response hours + completion hours theo severity — tự động flag overdue, hiển thị badge trạng thái.</li>
+                <li><strong>Approval workflow:</strong> CostEntry lifecycle (draft → pending → approved/rejected), chain phê duyệt cấu hình per-pharmacy.</li>
+                <li><strong>Cloud storage:</strong> Cloudflare R2 (S3-compatible) — upload/delete ảnh, HEIC conversion, cleanup cron job.</li>
+              </ul>
+              <div class="flex flex-wrap gap-1.5 mt-3">
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">React 18 + TypeScript</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Node.js + Express</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">PostgreSQL + Prisma</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Socket.IO</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Turborepo Monorepo</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Cloudflare R2</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">TanStack Query</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Zustand</span>
+              </div>
+            </article>
+
           </div>
         </section>
 

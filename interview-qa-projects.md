@@ -738,6 +738,129 @@
 
 ---
 
+---
+
+## Project: HV Quản Lý Tài Sản (Side Project · AI-assisted)
+
+> Full-stack web app quản lý tài sản doanh nghiệp cho chuỗi nhà thuốc ~40 chi nhánh.
+> Stack: React 18 + Node.js/Express + PostgreSQL + Socket.IO. Monorepo Turborepo.
+> **Vai trò:** Thiết kế kiến trúc, viết spec, điều phối AI (Claude) để implement.
+
+---
+
+### AI-assisted Development
+
+**Q: Project này bạn dùng AI để làm gì? Vai trò của bạn là gì?**
+
+> "Tôi dùng Claude để accelerate implementation — nhưng tôi là người ra quyết định kỹ thuật.
+>
+> Cụ thể những gì tôi làm:
+> - **Thiết kế kiến trúc**: chọn monorepo Turborepo, quyết định tách shared package, design Prisma schema cho 2 database (main + audit log)
+> - **Viết spec chi tiết**: 12 module specs trong `docs/specs/` trước khi implement — mỗi spec định nghĩa data model, API endpoints, business rules, edge cases
+> - **Review code**: mỗi output từ AI đều được review, hiểu, và debug khi cần
+> - **Governance**: viết `CLAUDE.md` với naming conventions, module boundaries, code patterns cho cả project
+>
+> AI làm tốt phần boilerplate và pattern repetition — tôi tập trung vào phần đòi hỏi judgment: kiến trúc, trade-off, business logic phức tạp."
+
+---
+
+**Q: Bạn có thực sự hiểu code do AI viết không?**
+
+> "Đây là câu hỏi quan trọng và tôi muốn trả lời thẳng: có, vì đây là điều kiện tôi đặt ra từ đầu.
+>
+> Những phần tôi có thể giải thích chi tiết:
+> - Tại sao dùng 2 Prisma schema (main DB + log DB riêng biệt)
+> - Socket.IO flow: JWT middleware → room per user → event-driven cache invalidation
+> - Approval workflow state machine: draft → pending → approved/rejected
+> - SLA violation detection trong TaskService
+>
+> Những phần tôi sẽ nói thật nếu không nhớ chi tiết implementation: 'Tôi biết nó làm gì và tại sao, nhưng cần xem lại code để trả lời câu hỏi cụ thể về implementation.'
+>
+> Điều này áp dụng cho mọi developer — kể cả code mình tự viết 6 tháng trước."
+
+---
+
+### Kiến trúc Monorepo
+
+**Q: Tại sao chọn monorepo cho project này?**
+
+> "3 lý do chính:
+>
+> 1. **Shared types**: Frontend và backend dùng chung TypeScript types/enums từ `@hvassets/shared` package — không bao giờ bị lệch interface giữa API response và frontend model
+> 2. **Atomic changes**: Khi thêm field mới vào Prisma schema, cập nhật shared type, update API endpoint, và update UI component trong 1 commit — không có PR chờ nhau giữa 2 repo
+> 3. **CI/CD đơn giản**: Turborepo detect thay đổi theo dependency graph — chỉ build lại package bị ảnh hưởng, không build toàn bộ
+>
+> Trade-off: setup phức tạp hơn single repo ban đầu, nhưng payoff rõ khi project scale."
+
+---
+
+### Real-time
+
+**Q: Socket.IO dùng như thế nào trong project? Tại sao không dùng polling?**
+
+> "Socket.IO cho real-time notifications và activity feed — khi tài sản thay đổi trạng thái hoặc có incident mới, tất cả user đang online thấy ngay không cần refresh.
+>
+> Architecture:
+> - Backend: Socket.IO server có JWT middleware riêng — kết nối phải xác thực token trước khi nhận event
+> - Activity subscribers: mỗi service (AssetService, IncidentService...) có subscriber emit event khi data thay đổi
+> - Frontend: hook `useSocketNotifications` lắng nghe event → gọi `queryClient.invalidateQueries()` → TanStack Query tự re-fetch data mới
+>
+> Tại sao không polling? Với 40 chi nhánh và nhiều user concurrent, polling 30 giây = N users × requests/30s liên tục. Socket.IO chỉ tốn bandwidth khi thực sự có event."
+
+---
+
+### RBAC & Permission
+
+**Q: Role-based access control implement thế nào? Có 6 role phức tạp không?**
+
+> "Backend dùng middleware `require-role.middleware.ts` — route nào cần permission thì khai báo roles array:
+> ```
+> router.post('/assets', requireRole(['admin', 'ops_manager']), createAsset)
+> ```
+>
+> Frontend có 2 tầng:
+> - **Route guard**: check role trước khi render page
+> - **Menu visibility**: Zustand store lưu `roleMenus` — menu items chỉ hiện với role có quyền
+>
+> Approval chains có thể config per-pharmacy — ví dụ pharmacy A cần manager duyệt chi phí >5tr, pharmacy B cần finance duyệt. Config này lưu trong DB, không hardcode.
+>
+> 6 role có vẻ nhiều nhưng về mặt implementation chỉ cần 1 middleware — không phức tạp hơn 2 role về code, chỉ phức tạp hơn về business logic mapping."
+
+---
+
+### SLA & Approval Workflow
+
+**Q: SLA engine trong hệ thống này hoạt động như thế nào?**
+
+> "Mỗi loại tài sản có `SlaConfig` gắn theo: `responseHours` (giờ phải phản hồi) và `completionHours` (giờ phải xong).
+>
+> Khi incident được tạo → timestamp lưu vào DB → TaskService khi query check:
+> ```
+> isOverdue = now > createdAt + completionHours
+> isDueSoon = now > createdAt + completionHours * 0.8  // 80% SLA đã qua
+> ```
+>
+> Frontend hiện badge màu: xanh (on-track), vàng (due-soon), đỏ (overdue).
+>
+> Không cần cron job để update badge — tính toán realtime mỗi lần query. Cron job chỉ dùng để gửi email reminder khi SLA gần hết."
+
+---
+
+### So sánh với Mobile Projects
+
+**Q: Làm full-stack web sau khi làm mobile, bạn thấy khác gì?**
+
+> "Khác biệt lớn nhất là mental model về state:
+>
+> - **Mobile (Flutter/React Native)**: UI state và server state thường tách biệt rõ — BLoC/Cubit là UI state, API call là separate concern
+> - **Web với TanStack Query**: server state là first-class citizen — `useQuery` vừa fetch vừa cache vừa sync với UI, không cần tự manage loading/error state từng chỗ
+>
+> Điểm giống nhau: cả hai đều dùng Repository pattern, đều cần care về authentication, error handling, optimistic updates.
+>
+> Điểm tôi mang từ mobile sang web: tư duy về offline (web thường bỏ qua), performance profiling, và habit test edge case (mạng chậm, session expire giữa chừng)."
+
+---
+
 ## Câu hỏi chung cho mọi project
 
 **Q: Project nào bạn tự hào nhất và tại sao?**
