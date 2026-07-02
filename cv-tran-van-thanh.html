@@ -206,9 +206,11 @@
               <ul class="text-sm text-secondary leading-relaxed mt-2 list-disc list-inside space-y-1">
                 <li><strong>Real-time tracking:</strong> Firebase Realtime Database — driver gửi GPS liên tục với smart filtering (time gate + distance gate), buffer offline queue 100 entries vào SharedPreferences khi mất mạng.</li>
                 <li><strong>Background GPS (Driver):</strong> Android foreground service + wakelock, iOS automotive activity type. Config tracking interval được server điều khiển qua ResponseSetting.</li>
+                <li><strong>Server-driven UI (Ship):</strong> Carousel banner và popup quảng cáo (draggable, center/side) render hoàn toàn từ config API — vị trí, ảnh, action, barrier overlay đều do backend kiểm soát.</li>
+                <li><strong>Dynamic popup form (Driver):</strong> Khi driver thực hiện action trên đơn hàng, server trả về FormConfig (field definitions, validation, conditional show) — bottom sheet render form động, submit về dynamic endpoint.</li>
                 <li><strong>FCM + Deep Link:</strong> Xử lý đủ 3 state (foreground/background/killed). Tap notification → parse URL → navigate đến đúng đơn hàng.</li>
-                <li><strong>Merchant menu CRUD:</strong> Hệ thống 3 tầng (group → product → attribute), drag-and-drop reorder, batch update, toggle visibility theo từng sản phẩm.</li>
-                <li><strong>Backend-driven actions:</strong> Action buttons (confirm/cancel/begin/end) do server quyết định qua DataButton flags — 3 app đồng bộ flow mà không cần release.</li>
+                <li><strong>Merchant menu CRUD:</strong> Hệ thống 3 tầng (group → product → attribute), drag-and-drop reorder, batch update, toggle visibility.</li>
+                <li><strong>Backend-driven actions:</strong> Action buttons và form fields do server quyết định — 3 app đồng bộ flow mà không cần release app mới.</li>
                 <li><strong>API layer:</strong> Retrofit code generation + Dio interceptor tự inject Bearer token, device metadata, timezone vào mọi request.</li>
               </ul>
               <div class="flex flex-wrap gap-1.5 mt-3">
@@ -223,16 +225,56 @@
               </div>
             </article>
 
-            <!-- VFC 1, 2, 3 -->
+            <!-- VFC 1 & 2 -->
             <article class="group border-l-2 border-border hover:border-accent pl-4 transition-colors duration-200 cursor-default">
               <div class="flex items-start justify-between gap-2 mb-1">
-                <h3 class="font-heading font-600 text-base text-primary">VFC Suite (1, 2, 3)</h3>
+                <h3 class="font-heading font-600 text-base text-primary">VFC 1 & 2</h3>
                 <span class="shrink-0 text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Mobile App</span>
               </div>
-              <p class="text-xs text-accent font-medium mb-2">Quản lý công việc nội bộ</p>
+              <p class="text-xs text-accent font-medium mb-2">Quản lý công việc & CRM nội bộ — UI Customization & Maintenance</p>
               <p class="text-sm text-secondary leading-relaxed">
-                Bộ 3 ứng dụng quản lý công việc cho nhân viên: bán hàng, khử trùng vệ sinh, và phòng tránh dịch bệnh tại nhà máy/xí nghiệp. Dynamic UI theo role, form phức tạp và báo cáo thực địa.
+                Hai ứng dụng React Native (Expo) cho nhân viên nhà máy: VFC 1 (quản lý đơn hàng, hóa đơn, báo cáo thực địa) và VFC 2 (CRM quản lý task, khách hàng). Tham gia với vai trò <strong>custom UI và maintenance</strong> — phát triển thêm components, cập nhật tính năng theo yêu cầu nghiệp vụ.
               </p>
+              <ul class="text-sm text-secondary leading-relaxed mt-2 list-disc list-inside space-y-1">
+                <li><strong>Server-driven UI:</strong> Backend trả về <code>UIType</code>, app render dynamic layout tương ứng — thêm tính năng mà không cần release app mới.</li>
+                <li><strong>Custom components:</strong> Form controls (currency, dropdown có pagination), card hóa đơn, state components chuẩn hóa (loading/empty/error).</li>
+              </ul>
+              <div class="flex flex-wrap gap-1.5 mt-3">
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">React Native</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Expo</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Context API</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Server-driven UI</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Firebase</span>
+              </div>
+            </article>
+
+            <!-- VFC 3 -->
+            <article class="group border-l-2 border-border hover:border-accent pl-4 transition-colors duration-200 cursor-default">
+              <div class="flex items-start justify-between gap-2 mb-1">
+                <h3 class="font-heading font-600 text-base text-primary">VFC 3 — PestMan</h3>
+                <span class="shrink-0 text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Mobile App</span>
+              </div>
+              <p class="text-xs text-accent font-medium mb-2">Quản lý dịch hại & công việc thực địa — Full Development</p>
+              <p class="text-sm text-secondary leading-relaxed">
+                Ứng dụng React Native (Expo) xây dựng từ đầu cho nhân viên kiểm soát dịch hại tại nhà máy. Nhân viên dùng app để nhận task, scan QR thiết bị, ghi nhận dữ liệu thực địa và đồng bộ khi có mạng.
+              </p>
+              <ul class="text-sm text-secondary leading-relaxed mt-2 list-disc list-inside space-y-1">
+                <li><strong>Offline-first:</strong> Toàn bộ dữ liệu form lưu vào SQLite (expo-sqlite) khi mất mạng. Dataset lớn (>10MB) được nén bằng gzip (pako) trước khi ghi — giảm đáng kể dung lượng lưu trữ. Tự động sync khi có kết nối trở lại.</li>
+                <li><strong>Config-driven form:</strong> MyFormControlV2 với 20+ control types (text, currency, date, signature, image, QR scan...) render theo config từ server — thêm field mới không cần release app.</li>
+                <li><strong>Device tracking qua QR:</strong> Nhân viên scan QR thiết bị → form điền dữ liệu → GPS snapshot → upload ảnh → submit. Hỗ trợ offline queue.</li>
+                <li><strong>Auth:</strong> OAuth2 + biometric (expo-local-authentication), token lưu native keychain/keystore.</li>
+                <li><strong>OTA update:</strong> expo-updates + EAS — deploy bản vá không cần qua Store review.</li>
+              </ul>
+              <div class="flex flex-wrap gap-1.5 mt-3">
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">React Native</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Expo 53</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Offline-first SQLite</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">GZIP Compression</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Config-driven UI</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">QR Scan</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">Biometric Auth</span>
+                <span class="text-xs text-muted bg-surface border border-border px-2 py-0.5 rounded-full">OTA Update</span>
+              </div>
             </article>
 
             <!-- Coshare -->

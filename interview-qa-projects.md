@@ -132,6 +132,34 @@
 
 ---
 
+### Server-driven UI — Carousel & Banner Popup
+
+**Q: Trang chủ Ship app có carousel ảnh — bạn implement như thế nào?**
+
+> "Dùng package `carousel_slider ^4.2.1` kết hợp với dữ liệu lấy từ API `/api/v1/User/HomePage_App`.
+>
+> Server trả về `configSlide` gồm:
+> - Danh sách `Slide` với `SlideImages` (imageUrl, title, moreInfo)
+> - `configSlide.slideShow`: số slide hiển thị cùng lúc
+> - `configSlide.gapSlide`: khoảng cách giữa các slide
+>
+> Widget `MasuCarouselSlider` nhận list này và render — hoàn toàn data-driven, không cần update app khi thêm/bớt slide. Thứ tự, nội dung, link click đều do backend kiểm soát."
+
+---
+
+**Q: MasuShip có popup banner quảng cáo — nó hoạt động thế nào?**
+
+> "Dùng class `ZPMarketingManager` (Singleton) quản lý 2 loại banner:
+>
+> - **BANNER_POPUP**: nổi ở góc màn hình, người dùng có thể kéo di chuyển, khi thả tự snap về góc gần nhất bằng animation
+> - **BANNER_CENTER_POPUP**: dạng modal chính giữa màn hình
+>
+> Toàn bộ config lấy từ `moreInfo.appSetting.configLayoutBanner` trên API — ảnh, vị trí ban đầu, thời gian delay hiện, action khi click (gọi API hoặc navigate), action khi đóng.
+>
+> Điểm hay: banner không cần hardcode trong app, marketing team có thể đẩy campaign mới mà không cần release. Khi user click/đóng, app có thể gọi API tracking để đo hiệu quả banner."
+
+---
+
 ---
 
 ## Project: MASU DRIVER
@@ -245,6 +273,33 @@
 > | Settings | Server-driven tracking config | Static config |
 >
 > Driver app phức tạp hơn nhiều về background execution và battery management."
+
+---
+
+### Dynamic Popup Form
+
+**Q: Driver app có popup form xuất hiện khi thực hiện action trên đơn hàng — bạn implement thế nào?**
+
+> "Khi driver tap action button trên đơn, server có thể kèm theo `IsShowPopupForm: true` trong response. App kiểm tra flag này — nếu `true` thì mở `ZPBottomForm` (bottom sheet) thay vì execute action luôn.
+>
+> Form được render hoàn toàn từ `FormConfig` — một list field definitions do server trả về trong `Buttons.more['FormConfig']`. Mỗi field có:
+> - `fieldName`, `type` (text/dropdown/image/...), `label`
+> - `required`: bắt buộc hay không
+> - `conditionShow`: điều kiện để field này xuất hiện (dựa theo giá trị field khác)
+>
+> Sau khi user điền form, app submit lên dynamic endpoint `/api/v1/{apiName}` cũng lấy từ config.
+>
+> Lợi ích: team backend có thể thêm/bớt field cho từng loại action (taxi/giao hàng/mua hộ) mà không cần update app — deploy logic form mới hoàn toàn từ server."
+
+---
+
+**Q: Conditional field trong form động implement thế nào?**
+
+> "Mỗi field có property `conditionShow` — là một điều kiện JSON kiểu `{fieldName: 'reasonType', value: 'OTHER'}`.
+>
+> Trong `MyFormCubit`, khi user thay đổi giá trị một field → cubit emit state mới → `MyForm` widget rebuild → với mỗi field, evaluate `conditionShow` dựa trên current form values → field xuất hiện hoặc ẩn đi.
+>
+> Ví dụ: dropdown 'Lý do hủy' mặc định ẩn ô 'Ghi chú', chỉ hiện khi user chọn 'Lý do khác'. Toàn bộ logic này nằm trên server config, không hardcode trong app."
 
 ---
 
@@ -472,19 +527,199 @@
 
 ---
 
-## Project: VFC Suite (1, 2, 3)
+## Project: VFC 1 & 2
 
-> Flutter. Quản lý công việc nội bộ: bán hàng, khử trùng, phòng dịch. Dynamic UI theo role, form phức tạp.
-
-*(Đang cập nhật — cần phân tích source code)*
+> React Native + Expo. Vai trò: **UI customization & maintenance**.
+> VFC 1: field service (đơn hàng, hóa đơn, báo cáo). VFC 2: CRM (task, khách hàng).
+> Cùng stack: Expo + @macashipo/mlib + Context API.
 
 ---
 
-**Câu hỏi dự kiến:**
-- Dynamic UI theo role implement thế nào?
-- Form phức tạp (multi-step, file upload) xử lý thế nào?
-- 3 app riêng hay 1 app nhiều flavor?
-- Report/báo cáo thực địa gửi lên server thế nào?
+### Lưu ý khi trả lời phỏng vấn
+
+> **Trả lời thật về scope:** "Tôi tham gia giai đoạn sau — chủ yếu custom UI components, thêm tính năng mới theo yêu cầu, và maintain codebase hiện có. Không phải người setup kiến trúc ban đầu."
+>
+> Điều này thể hiện **tính trung thực** — Senior interviewer đánh giá cao hơn là phóng đại.
+
+---
+
+### Tech Stack (React Native vs Flutter)
+
+**Q: Bạn thấy React Native và Flutter khác nhau thế nào khi làm việc thực tế?**
+
+> "Khác biệt rõ nhất tôi thấy khi maintain VFC:
+>
+> | Aspect | React Native (VFC) | Flutter (Masu/Sigo) |
+> |---|---|---|
+> | State | Context + useReducer | BLoC/Cubit |
+> | Styling | StyleSheet.create() | ThemeData, widget tree |
+> | Build | Expo EAS — đơn giản hơn | Flutter build tools |
+> | Performance | JS bridge có overhead | Compiled to native |
+> | Ecosystem | npm — nhiều package hơn | pub.dev — ít hơn nhưng chất lượng hơn |
+>
+> React Native với Expo thì setup và CI/CD nhanh hơn, nhưng khi cần custom native code thì Flutter dễ hơn (không cần biết JS bridge). Với app phức tạp như Masu Driver cần background GPS, Flutter tự nhiên hơn."
+
+---
+
+### Server-driven UI
+
+**Q: Dynamic UI trong VFC hoạt động như thế nào?**
+
+> "Backend trả về `configPage.UIType` string — app navigate đến `GenericScreen` với UIType đó. Component `MyPage` render layout tương ứng dựa trên UIType.
+>
+> Ví dụ: thêm màn hình báo cáo mới chỉ cần server trả về UIType mới, app không cần release version mới.
+>
+> Đây là pattern tương tự Server-Driven UI (SDUI) mà các công ty lớn như Airbnb, Grab dùng — linh hoạt nhưng cần discipline ở cả client lẫn server khi thay đổi schema."
+
+---
+
+### Custom Components
+
+**Q: Bạn custom những gì cụ thể trong VFC?**
+
+> "Tôi tập trung vào 3 phần:
+>
+> 1. **Form controls**: Thêm field type mới (currency input với format tự động, dropdown có pagination cho danh sách lớn). Hệ thống dùng `MyFormControl` wrapper với helper `HFormControl` cho get/set value.
+>
+> 2. **Card components**: Custom `card_invoice.js` hiển thị chi tiết hóa đơn với nhiều section — giá, thuế, trạng thái, QR code.
+>
+> 3. **State components**: `AStateLoading`, `AStateEmpty`, `AStateError` — chuẩn hóa UX cho các trạng thái loading/empty/error thay vì mỗi màn hình tự handle khác nhau.
+>
+> Không động vào networking layer hay business logic — scope chỉ là UI layer."
+
+---
+
+### Maintenance
+
+**Q: Khi maintain codebase người khác build, bạn tiếp cận thế nào?**
+
+> "Với VFC tôi làm theo trình tự:
+> 1. Đọc hiểu luồng data: AppContext → useApp hook → reducer actions
+> 2. Trace 1 feature end-to-end (ví dụ: login flow) để hiểu convention
+> 3. Không refactor vội — chỉ sửa đúng chỗ cần sửa, tránh break cái đang chạy
+> 4. Khi thêm component mới: follow pattern của component cũ trong cùng folder
+>
+> Nguyên tắc: khi maintain, **consistency > personal preference** — viết theo style của codebase dù không phải style mình chọn."
+
+---
+
+---
+
+## Project: VFC 3 — PestMan
+
+> React Native 0.79.5 + Expo 53. 319 files. **Built from scratch**. Offline-first, SQLite + gzip, config-driven forms, QR device tracking.
+
+---
+
+### Offline-first Architecture
+
+**Q: Offline mode trong VFC 3 implement thế nào?**
+
+> "App dùng `expo-sqlite` làm local database. Khi mất mạng, toàn bộ dữ liệu form nhân viên nhập (task data, device scan, ảnh chụp) được lưu vào SQLite với UUID làm key.
+>
+> Điểm đặc biệt: dataset lớn hơn 10MB được **nén bằng gzip** (thư viện pako) trước khi ghi vào SQLite dạng BLOB — giảm dung lượng đáng kể. Khi có mạng, background sync tự upload queue theo thứ tự.
+>
+> Database có migration handler — khi update app version mới, schema được upgrade tự động không mất data user."
+
+---
+
+**Q: Tại sao chọn SQLite thay vì chỉ dùng SharedPreferences/SecureStore?**
+
+> "SharedPreferences phù hợp cho key-value đơn giản (token, settings). Nhưng VFC 3 cần:
+> - Lưu nhiều form records cùng lúc (nhân viên có thể có 20+ task offline)
+> - Query theo điều kiện (filter theo DeviceQRCode, DateScan)
+> - Schema versioning khi app update
+>
+> SQLite cho phép làm tất cả những điều trên. Nếu dùng SharedPreferences, toàn bộ data là 1 JSON blob — parse chậm và không thể query."
+
+---
+
+### Config-driven Forms
+
+**Q: MyFormControlV2 hoạt động như thế nào?**
+
+> "Backend trả về mảng field configs. Mỗi config có `FieldName`, `Type`, `Label`, validation rules. Component `MyFormControlV2` map từng type sang control tương ứng:
+>
+> ```
+> 'text'       → TextInput
+> 'currency'   → Formatted number input
+> 'date'       → Date picker
+> 'select'     → Dropdown (có pagination)
+> 'image'      → Camera capture
+> 'signature'  → Canvas WebView
+> 'checkbox'   → Toggle
+> ...20+ types
+> ```
+>
+> Khi PM yêu cầu thêm field mới (ví dụ: 'temperature' input), chỉ cần:
+> 1. Thêm 1 component Type mới trong `MyFormControlV2/Types/`
+> 2. Server thêm field vào config
+> 3. Không cần sửa screen nào cả"
+
+---
+
+### Device Tracking & QR
+
+**Q: QR device tracking flow hoàn chỉnh như thế nào?**
+
+> "1. Nhân viên scan QR code trên thiết bị (máy phun, bẫy chuột...) bằng camera
+> 2. App decode QR → extract `DeviceQRCode` + metadata
+> 3. Form hiện ra với fields config từ server cho device đó
+> 4. GPS snapshot tự động (expo-location với retry 5 lần nếu signal yếu)
+> 5. Nhân viên nhập dữ liệu + chụp ảnh
+> 6. Submit → nếu offline thì queue vào SQLite, nếu online thì upload ngay
+> 7. Server log `DateScan`, `DateSubmit` cho audit trail
+>
+> Toàn bộ flow chạy được offline — quan trọng vì nhà máy thường có dead zone mạng."
+
+---
+
+### Authentication
+
+**Q: Biometric auth implement thế nào?**
+
+> "Dùng `expo-local-authentication` để check FaceID/fingerprint availability. Token được split làm 2:
+> - **Main token**: lưu `expo-secure-store` (native keychain/keystore) — dùng sau khi login bằng password
+> - **Biometric token**: lưu riêng — dùng cho biometric login lần sau
+>
+> Flow biometric:
+> 1. App check `isBiometricEnrolled` → nếu có, offer biometric login
+> 2. User xác thực bằng FaceID/fingerprint
+> 3. App lấy biometric token từ secure store → gọi API verify → nhận fresh access token
+>
+> Không bao giờ lưu password — chỉ lưu token. Nếu token expire, user phải login lại bằng password."
+
+---
+
+### OTA Update
+
+**Q: OTA update trong Expo hoạt động thế nào? Có rủi ro gì không?**
+
+> "Expo EAS Update cho phép push JavaScript bundle mới mà không cần submit qua App Store/Play Store — user nhận update ngay khi mở app.
+>
+> Cách implement: app check update khi start, nếu có version mới thì download background, apply khi restart.
+>
+> Rủi ro:
+> - **Native code thay đổi** (thêm native module, config mới): KHÔNG dùng được OTA, phải submit store bình thường
+> - **Bad update**: nếu JS crash ngay lúc start → Expo tự rollback về bundle trước
+>
+> VFC 3 dùng OTA cho bug fix nhỏ và content update — tránh dùng cho thay đổi architecture lớn. Có 4 channels (preview, adhoc, production, production_phase_two) để test từng bước trước khi push production."
+
+---
+
+### So sánh VFC 1/2 vs VFC 3
+
+**Q: Bạn học được gì từ VFC 1/2 và apply vào VFC 3?**
+
+> "Sau khi maintain VFC 1 và 2, tôi nhận ra một số pain point:
+>
+> 1. **Form hardcode**: mỗi màn hình VFC 1/2 tự build form riêng → duplicate code nhiều. VFC 3 tôi design `MyFormControlV2` centraliz toàn bộ — thêm field mới chỉ cần thêm 1 file.
+>
+> 2. **Không có offline support**: VFC 1/2 mất mạng là không dùng được. VFC 3 tôi design offline-first từ đầu với SQLite queue.
+>
+> 3. **Error handling rải rác**: VFC 1/2 mỗi component tự catch error theo cách riêng. VFC 3 dùng `ErrorBoundary` global + Crashlytics để có đủ context khi debug production issue.
+>
+> Về React Native vs Flutter: sau khi làm cả 2 stack, tôi thấy React Native với Expo phù hợp hơn cho team có background web (JavaScript/TypeScript). Flutter phù hợp hơn khi cần performance cao và background service phức tạp như GPS tracking liên tục trong Masu Driver."
 
 ---
 
