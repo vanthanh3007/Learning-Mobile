@@ -1,0 +1,4 @@
+*.claude
+
+# Phien dang nhap Playwright (chua cookie that) — khong bao gio commit
+cv/scripts/.auth/

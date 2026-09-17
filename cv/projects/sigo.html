@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sigo — Cho thuê xe tự lái | Trần Văn Thanh</title>
+  <meta name="description" content="Sigo — nền tảng cho thuê xe tự lái 2 luồng người dùng. Flutter + React JS, KYC bằng Google MLKit OCR, pricing engine động, lịch xe realtime." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body class="font-body bg-surface text-primary antialiased">
+
+  <!-- ===================== Thanh điều hướng ===================== -->
+  <nav class="no-print sticky top-4 z-30 mx-4 sm:mx-6 lg:mx-8">
+    <div class="max-w-content mx-auto bg-white/90 backdrop-blur border border-border rounded-xl shadow-sm px-4 py-2.5 flex items-center justify-between gap-4">
+      <a href="../index.html" class="flex items-center gap-1.5 font-heading font-semibold text-sm text-primary hover:text-accent transition-colors duration-200 cursor-pointer shrink-0">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+        CV
+      </a>
+
+      <div class="flex items-center gap-1 overflow-x-auto">
+        <span aria-current="page" class="text-xs font-medium text-white bg-primary px-2.5 py-1.5 rounded-lg whitespace-nowrap">Sigo</span>
+        <a href="masu.html" class="text-xs font-medium text-secondary hover:text-accent px-2.5 py-1.5 rounded-lg hover:bg-surface transition-colors duration-200 cursor-pointer whitespace-nowrap">Masu</a>
+        <a href="vfc-3-pestman.html" class="text-xs font-medium text-secondary hover:text-accent px-2.5 py-1.5 rounded-lg hover:bg-surface transition-colors duration-200 cursor-pointer whitespace-nowrap">PestMan</a>
+        <a href="vfc-1-2.html" class="text-xs font-medium text-secondary hover:text-accent px-2.5 py-1.5 rounded-lg hover:bg-surface transition-colors duration-200 cursor-pointer whitespace-nowrap">VFC 1&amp;2</a>
+        <a href="hv-quan-ly-tai-san.html" class="text-xs font-medium text-secondary hover:text-accent px-2.5 py-1.5 rounded-lg hover:bg-surface transition-colors duration-200 cursor-pointer whitespace-nowrap">HV Tài Sản</a>
+        <a href="coshare.html" class="text-xs font-medium text-secondary hover:text-accent px-2.5 py-1.5 rounded-lg hover:bg-surface transition-colors duration-200 cursor-pointer whitespace-nowrap">Coshare</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16">
+
+    <!-- ===================== Hero ===================== -->
+    <header class="border-b border-border pb-8 mb-10">
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span class="text-[11px] font-medium text-muted border border-border bg-white px-2 py-0.5 rounded-full">Mobile App</span>
+        <span class="text-[11px] font-medium text-muted border border-border bg-white px-2 py-0.5 rounded-full">Web App</span>
+      </div>
+
+      <h1 class="font-heading font-bold text-4xl sm:text-5xl text-primary leading-tight tracking-tight">Sigo</h1>
+      <p class="text-accent font-medium text-base mt-2">Cho thuê xe tự lái — Renter &amp; Owner</p>
+
+      <p class="text-secondary leading-relaxed text-base max-w-2xl mt-5">
+        Nền tảng cho thuê xe tự lái với hai luồng người dùng tách biệt hoàn toàn:
+        <strong class="text-primary font-semibold">Renter</strong> tìm kiếm và đặt xe,
+        <strong class="text-primary font-semibold">Owner</strong> quản lý đội xe, lịch trống và doanh thu.
+        Ứng dụng di động viết bằng Flutter, đi kèm web app React JS.
+      </p>
+
+      <div class="flex flex-wrap gap-2 mt-6" data-store-links>
+        <a href="https://play.google.com/store/apps/details?id=vn.sigo.app" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 text-xs font-medium text-secondary hover:text-accent bg-white border border-border hover:border-accent px-3 py-2 rounded-lg transition-colors duration-200 cursor-pointer">
+          <img src="../assets/projects/sigo/icon.png" alt="" width="16" height="16" class="w-4 h-4 rounded" />
+          Google Play — Sigo
+        </a>
+      </div>
+    </header>
+
+    <!-- ===================== Thông tin nhanh ===================== -->
+    <section class="grid grid-cols-2 sm:grid-cols-4 gap-px bg-border border border-border rounded-xl overflow-hidden mb-12">
+      <div class="bg-white p-4">
+        <p class="text-[10px] uppercase tracking-widest text-muted mb-1">Vai trò</p>
+        <p class="text-sm font-medium text-primary">Mobile Developer</p>
+      </div>
+      <div class="bg-white p-4">
+        <p class="text-[10px] uppercase tracking-widest text-muted mb-1">Nền tảng</p>
+        <p class="text-sm font-medium text-primary">iOS · Android · Web</p>
+      </div>
+      <div class="bg-white p-4">
+        <p class="text-[10px] uppercase tracking-widest text-muted mb-1">Quy mô</p>
+        <p class="text-sm font-medium text-primary">~911 Dart files</p>
+      </div>
+      <div class="bg-white p-4">
+        <p class="text-[10px] uppercase tracking-widest text-muted mb-1">State</p>
+        <p class="text-sm font-medium text-primary">96 Cubits</p>
+      </div>
+    </section>
+
+    <!-- ===================== Screenshot ===================== -->
+    <!-- GALLERY: khối này sẽ được thay bằng <img> thật sau khi tải ảnh từ store -->
+    <section class="mb-12" data-gallery="sigo">
+      <div class="flex items-baseline justify-between gap-4 mb-5">
+        <h2 class="font-heading font-semibold text-xs tracking-[0.2em] uppercase text-muted">Giao diện — Sigo</h2>
+        <span class="no-print text-xs text-muted">6 ảnh · bấm để phóng to</span>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 items-start">
+        <img data-lightbox loading="lazy" src="../assets/projects/sigo/play-01.png" width="384" height="512" alt="Sigo — màn hình 1" class="shot w-full rounded-xl border border-border bg-white hover:border-accent transition-colors duration-200" />
+        <img data-lightbox loading="lazy" src="../assets/projects/sigo/play-02.png" width="384" height="512" alt="Sigo — màn hình 2" class="shot w-full rounded-xl border border-border bg-white hover:border-accent transition-colors duration-200" />
+        <img data-lightbox loading="lazy" src="../assets/projects/sigo/play-03.png" width="384" height="512" alt="Sigo — màn hình 3" class="shot w-full rounded-xl border border-border bg-white hover:border-accent transition-colors duration-200" />
+        <img data-lightbox loading="lazy" src="../assets/projects/sigo/play-04.png" width="384" height="512" alt="Sigo — màn hình 4" class="shot w-full rounded-xl border border-border bg-white hover:border-accent transition-colors duration-200" />
+        <img data-lightbox loading="lazy" src="../assets/projects/sigo/play-05.png" width="384" height="512" alt="Sigo — màn hình 5" class="shot w-full rounded-xl border border-border bg-white hover:border-accent transition-colors duration-200" />
+        <img data-lightbox loading="lazy" src="../assets/projects/sigo/play-06.png" width="384" height="512" alt="Sigo — màn hình 6" class="shot w-full rounded-xl border border-border bg-white hover:border-accent transition-colors duration-200" />
+      </div>
+    </section>
+
+    <!-- ===================== Điểm kỹ thuật ===================== -->
+    <section class="mb-12">
+      <h2 class="font-heading font-semibold text-xs tracking-[0.2em] uppercase text-muted mb-5">Điểm kỹ thuật nổi bật</h2>
+
+      <div class="flex flex-col gap-5">
+
+        <article class="print-keep border-l-2 border-border hover:border-accent pl-5 transition-colors duration-200">
+          <h3 class="font-heading font-semibold text-sm text-primary mb-1.5">KYC bằng Google MLKit</h3>
+          <p class="text-sm text-secondary leading-relaxed">
+            OCR nhận dạng CMND/CCCD (text recognition), liveness check và xác thực bằng lái xe.
+            Toàn bộ xử lý chạy <strong class="text-primary font-semibold">trên thiết bị</strong> — ảnh gốc không rời máy người dùng,
+            giảm rủi ro lộ giấy tờ tuỳ thân và không tốn băng thông upload.
+          </p>
+        </article>
+
+        <article class="print-keep border-l-2 border-border hover:border-accent pl-5 transition-colors duration-200">
+          <h3 class="font-heading font-semibold text-sm text-primary mb-1.5">Dual mode — hai ứng dụng trong một</h3>
+          <p class="text-sm text-secondary leading-relaxed">
+            Owner có cây màn hình riêng hoàn toàn (<code class="text-xs bg-white border border-border rounded px-1 py-0.5">MainOwnerScreen</code>):
+            analytics doanh thu, quản lý đội xe, đánh dấu lịch bận theo từng ngày. Chuyển mode không cần đăng xuất.
+          </p>
+        </article>
+
+        <article class="print-keep border-l-2 border-border hover:border-accent pl-5 transition-colors duration-200">
+          <h3 class="font-heading font-semibold text-sm text-primary mb-1.5">Pricing engine</h3>
+          <p class="text-sm text-secondary leading-relaxed">
+            Giá tính động theo công thức: số ngày thuê × đơn giá + phí giao xe + bảo hiểm + VAT − voucher.
+            Recalculate realtime mỗi khi người dùng đổi ngày, địa điểm giao xe hay mã giảm giá — không cần bấm "tính lại".
+          </p>
+        </article>
+
+        <article class="print-keep border-l-2 border-border hover:border-accent pl-5 transition-colors duration-200">
+          <h3 class="font-heading font-semibold text-sm text-primary mb-1.5">Lịch xe đồng bộ realtime</h3>
+          <p class="text-sm text-secondary leading-relaxed">
+            Firebase Realtime Database giữ lịch bận của từng xe. Chủ xe cập nhật trên một thiết bị,
+            khách đang xem trên thiết bị khác thấy ngay — tránh đặt trùng lịch.
+          </p>
+        </article>
+
+        <article class="print-keep border-l-2 border-border hover:border-accent pl-5 transition-colors duration-200">
+          <h3 class="font-heading font-semibold text-sm text-primary mb-1.5">Thanh toán VietQR &amp; ví</h3>
+          <p class="text-sm text-secondary leading-relaxed">
+            Tích hợp VietQR API, quản lý số dư ví, liên kết tài khoản ngân hàng và lịch sử giao dịch.
+          </p>
+        </article>
+
+        <article class="print-keep border-l-2 border-border hover:border-accent pl-5 transition-colors duration-200">
+          <h3 class="font-heading font-semibold text-sm text-primary mb-1.5">Device fingerprinting chống gian lận</h3>
+          <p class="text-sm text-secondary leading-relaxed">
+            Mỗi request gửi kèm device ID và metadata thiết bị để server phát hiện hành vi bất thường
+            (một người tạo nhiều tài khoản, đặt xe ảo).
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===================== Công nghệ ===================== -->
+    <section class="border-t border-border pt-8">
+      <h2 class="font-heading font-semibold text-xs tracking-[0.2em] uppercase text-muted mb-4">Công nghệ</h2>
+      <div class="flex flex-wrap gap-1.5">
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">Flutter</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">BLoC / Cubit</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">Google MLKit OCR</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">VietQR</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">Firebase Realtime DB</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">Google Maps</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">React JS</span>
+      </div>
+    </section>
+
+    <!-- ===================== Điều hướng cuối trang ===================== -->
+    <nav class="no-print flex items-center justify-between gap-4 border-t border-border mt-12 pt-6">
+      <a href="../index.html" class="text-sm font-medium text-secondary hover:text-accent transition-colors duration-200 cursor-pointer">← Tất cả dự án</a>
+      <a href="masu.html" class="text-sm font-medium text-secondary hover:text-accent transition-colors duration-200 cursor-pointer">Masu →</a>
+    </nav>
+
+  </main>
+
+  <footer class="border-t border-border">
+    <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-xs text-muted">
+      <p>Trần Văn Thanh · Senior Mobile Developer · vanthanh300798@gmail.com</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/gallery-lightbox.js"></script>
+</body>
+</html>
