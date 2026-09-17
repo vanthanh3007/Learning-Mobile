@@ -150,7 +150,7 @@
           <p class="text-sm text-secondary leading-relaxed">
             Driver đẩy GPS liên tục lên Firebase Realtime Database, có lọc thông minh hai tầng
             (<strong class="text-primary font-semibold">time gate</strong> + <strong class="text-primary font-semibold">distance gate</strong>)
-            để không spam khi xe đứng yên. Mất mạng thì điểm GPS xếp vào hàng đợi offline 100 phần tử trong SharedPreferences,
+            để không spam khi xe đứng yên. Mất mạng thì điểm GPS xếp vào hàng đợi 100 phần tử lưu ngay trên máy,
             có mạng lại thì đẩy bù.
           </p>
         </article>
@@ -159,8 +159,7 @@
           <h3 class="font-heading font-semibold text-sm text-primary mb-1.5">GPS chạy nền (Driver)</h3>
           <p class="text-sm text-secondary leading-relaxed">
             Android dùng foreground service + wakelock để hệ thống không kill tiến trình;
-            iOS khai báo automotive activity type. Chu kỳ lấy toạ độ do server điều khiển qua
-            <code class="text-xs bg-white border border-border rounded px-1 py-0.5">ResponseSetting</code> —
+            iOS khai báo automotive activity type. Chu kỳ lấy toạ độ do server điều khiển qua cấu hình trả về lúc chạy —
             chỉnh tần suất tracking mà không cần phát hành bản mới.
           </p>
         </article>
@@ -176,9 +175,9 @@
         <article class="print-keep border-l-2 border-border hover:border-accent pl-5 transition-colors duration-200">
           <h3 class="font-heading font-semibold text-sm text-primary mb-1.5">Form động theo hành động (Driver)</h3>
           <p class="text-sm text-secondary leading-relaxed">
-            Khi tài xế thao tác trên đơn hàng, server trả về <code class="text-xs bg-white border border-border rounded px-1 py-0.5">FormConfig</code>
-            gồm định nghĩa field, luật validate và điều kiện hiển thị. App dựng bottom sheet theo config đó và submit về endpoint động.
-            Thêm bước nghiệp vụ mới = sửa config, không đụng tới app.
+            Khi tài xế thao tác trên đơn hàng, server trả về một gói cấu hình form gồm định nghĩa trường,
+            luật kiểm tra dữ liệu và điều kiện hiển thị. App dựng bottom sheet theo cấu hình đó và gửi về đúng API tương ứng.
+            Thêm bước nghiệp vụ mới chỉ cần sửa cấu hình, không đụng tới app.
           </p>
         </article>
 

@@ -37,34 +37,44 @@
 
     <!-- ===================== Hero ===================== -->
     <header class="border-b border-border pb-10 mb-12">
-      <p class="text-accent font-heading font-medium text-xs tracking-[0.2em] uppercase mb-3">
-        Senior Mobile Developer
-      </p>
-      <h1 class="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-primary leading-[1.1] tracking-tight">
-        Trần Văn Thanh
-      </h1>
+      <!-- Anh dai dien di truoc ten tren mobile (flex-col-reverse dao lai tren desktop)
+           de man hinh hep khong phai cuon qua mot khoi anh lon moi thay ten. -->
+      <div class="flex flex-col-reverse sm:flex-row sm:items-start sm:justify-between gap-6 sm:gap-10">
+        <div class="min-w-0">
+          <p class="text-accent font-heading font-medium text-xs tracking-[0.2em] uppercase mb-3">
+            Senior Mobile Developer
+          </p>
+          <h1 class="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-primary leading-[1.1] tracking-tight">
+            Trần Văn Thanh
+          </h1>
 
-      <p class="text-secondary leading-relaxed text-base max-w-2xl mt-6">
-        Xây dựng ứng dụng di động đa nền tảng bằng <strong class="text-primary font-semibold">Flutter</strong> và
-        <strong class="text-primary font-semibold">React Native</strong>. Chuyên sâu về tích hợp dịch vụ thực tế:
-        push notification, deep link, background GPS, offline-first và publish app lên store.
-        Đã tham gia sản phẩm ở nhiều lĩnh vực — cho thuê xe, giao hàng, quản lý công việc, bán hàng.
-      </p>
+          <p class="text-secondary leading-relaxed text-base max-w-2xl mt-6">
+            Xây dựng ứng dụng di động đa nền tảng bằng <strong class="text-primary font-semibold">Flutter</strong> và
+            <strong class="text-primary font-semibold">React Native</strong>. Chuyên sâu về tích hợp dịch vụ thực tế:
+            push notification, deep link, background GPS, offline-first và publish app lên store.
+            Đã tham gia sản phẩm ở nhiều lĩnh vực — cho thuê xe, giao hàng, quản lý công việc, bán hàng.
+          </p>
 
-      <!-- Liên hệ -->
-      <div class="flex flex-wrap items-center gap-x-5 gap-y-2 mt-7 text-sm">
-        <a href="mailto:vanthanh300798@gmail.com" class="flex items-center gap-2 text-secondary hover:text-accent transition-colors duration-200 cursor-pointer">
-          <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-          </svg>
-          vanthanh300798@gmail.com
-        </a>
-        <a href="https://github.com/vanthanh3007" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-secondary hover:text-accent transition-colors duration-200 cursor-pointer">
-          <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
-          </svg>
-          github.com/vanthanh3007
-        </a>
+          <!-- Liên hệ -->
+          <div class="flex flex-wrap items-center gap-x-5 gap-y-2 mt-7 text-sm">
+            <a href="mailto:vanthanh300798@gmail.com" class="flex items-center gap-2 text-secondary hover:text-accent transition-colors duration-200 cursor-pointer">
+              <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              vanthanh300798@gmail.com
+            </a>
+            <a href="https://github.com/vanthanh3007" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-secondary hover:text-accent transition-colors duration-200 cursor-pointer">
+              <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+              github.com/vanthanh3007
+            </a>
+          </div>
+        </div>
+
+        <img src="assets/img/anh-dai-dien.jpg" width="730" height="731"
+             alt="Ảnh chân dung Trần Văn Thanh"
+             class="print-keep w-28 sm:w-36 lg:w-40 aspect-square shrink-0 self-start object-cover rounded-xl border border-border bg-zinc-100" />
       </div>
     </header>
 
@@ -135,9 +145,9 @@
               <h3 class="font-heading font-semibold text-base text-primary group-hover:text-accent transition-colors duration-200">VFC 3 — PestMan</h3>
               <span class="shrink-0 text-[10px] text-muted border border-border px-1.5 py-0.5 rounded-full">Mobile</span>
             </div>
-            <p class="text-xs text-accent font-medium mb-2">Quản lý dịch hại thực địa — xây từ đầu</p>
+            <p class="text-xs text-accent font-medium mb-2">Quản lý dịch hại thực địa</p>
             <p class="text-sm text-secondary leading-relaxed flex-1">
-              Offline-first với SQLite + nén gzip cho dataset &gt;10MB. Form 20+ control type render theo config server.
+              Offline-first với SQLite cho nhà máy không có sóng. Form 20+ control type render theo config server.
             </p>
             <div class="flex flex-wrap gap-1 mt-3">
               <span class="text-[10px] text-muted bg-surface border border-border px-1.5 py-0.5 rounded">React Native</span>
@@ -281,11 +291,53 @@
         </div>
       </div>
 
-      <div>
-        <h2 class="font-heading font-semibold text-xs tracking-[0.2em] uppercase text-muted mb-5">Học vấn</h2>
-        <p class="font-medium text-sm text-primary">Khoa học Tự nhiên</p>
-        <p class="text-sm text-secondary mt-0.5">Công nghệ Thông tin</p>
-        <p class="text-xs text-muted mt-1">2016</p>
+      <div class="flex flex-col gap-10">
+        <div>
+          <h2 class="font-heading font-semibold text-xs tracking-[0.2em] uppercase text-muted mb-5">Học vấn</h2>
+          <p class="font-medium text-sm text-primary">Khoa học Tự nhiên</p>
+          <p class="text-sm text-secondary mt-0.5">Công nghệ Thông tin</p>
+          <p class="text-xs text-muted mt-1">2016</p>
+        </div>
+
+        <div>
+          <h2 class="font-heading font-semibold text-xs tracking-[0.2em] uppercase text-muted mb-5">Sở thích</h2>
+          <ul class="flex flex-col gap-2.5">
+            <li class="flex items-center gap-2.5 text-sm text-secondary">
+              <!-- Qua cau long: chum long hinh loe + dau nut tron ben duoi -->
+              <svg class="w-4 h-4 shrink-0 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path stroke-linejoin="round" d="M6.8 3h10.4l-2.5 11h-5.4z" />
+                <path stroke-linecap="round" d="M9.3 14c0 3.2 5.4 3.2 5.4 0" />
+                <path stroke-linecap="round" d="M10.6 3.3 11.3 14M13.4 3.3 12.7 14" />
+              </svg>
+              Cầu lông
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-secondary">
+              <!-- May bay giay -->
+              <svg class="w-4 h-4 shrink-0 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 3 3 10.5l7.2 2.8L13 21z" />
+                <path stroke-linecap="round" d="M21 3l-10.8 10.3" />
+              </svg>
+              Du lịch
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-secondary">
+              <!-- Noi nau an -->
+              <svg class="w-4 h-4 shrink-0 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 10h16v4.5A4.5 4.5 0 0 1 15.5 19h-7A4.5 4.5 0 0 1 4 14.5z" />
+                <path stroke-linecap="round" d="M4 12.5H2M20 12.5h2M9 6.5c0-1 1.5-1 1.5-2M13.5 6.5c0-1 1.5-1 1.5-2" />
+              </svg>
+              Nấu ăn
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-secondary">
+              <!-- Ta tay: hai ban ta hinh khoi + thanh ngang -->
+              <svg class="w-4 h-4 shrink-0 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <rect x="3" y="8" width="4" height="8" rx="1.2" />
+                <rect x="17" y="8" width="4" height="8" rx="1.2" />
+                <path stroke-linecap="round" d="M7 12h10" />
+              </svg>
+              Gym
+            </li>
+          </ul>
+        </div>
       </div>
 
     </section>
