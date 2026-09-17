@@ -2,3 +2,7 @@
 
 # Phien dang nhap Playwright (chua cookie that) — khong bao gio commit
 cv/scripts/.auth/
+
+# Bytecode Python sinh ra khi chay script trong cv/scripts/
+__pycache__/
+*.pyc
