@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coshare — Marketplace phúc lợi người lao động | Trần Văn Thanh</title>
+  <meta name="description" content="Coshare — marketplace mua sắm ưu đãi trong hệ sinh thái phúc lợi người lao động: vai trò người mua, gian hàng đối tác, shipper giao hàng và affiliate đa cấp. React + TypeScript, React Query, RESTful API." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body class="font-body bg-surface text-primary antialiased">
+
+  <nav class="no-print sticky top-4 z-30 mx-4 sm:mx-6 lg:mx-8">
+    <div class="max-w-content mx-auto bg-white/90 backdrop-blur border border-border rounded-xl shadow-sm px-4 py-2.5 flex items-center justify-between gap-4">
+      <a href="../index.html" class="flex items-center gap-1.5 font-heading font-semibold text-sm text-primary hover:text-accent transition-colors duration-200 cursor-pointer shrink-0">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+        CV
+      </a>
+      <div class="flex items-center gap-1 overflow-x-auto">
+        <a href="sigo.html" class="text-xs font-medium text-secondary hover:text-accent px-2.5 py-1.5 rounded-lg hover:bg-surface transition-colors duration-200 cursor-pointer whitespace-nowrap">Sigo</a>
+        <a href="masu.html" class="text-xs font-medium text-secondary hover:text-accent px-2.5 py-1.5 rounded-lg hover:bg-surface transition-colors duration-200 cursor-pointer whitespace-nowrap">Masu</a>
+        <a href="vfc-3-pestman.html" class="text-xs font-medium text-secondary hover:text-accent px-2.5 py-1.5 rounded-lg hover:bg-surface transition-colors duration-200 cursor-pointer whitespace-nowrap">PestMan</a>
+        <a href="vfc-1-2.html" class="text-xs font-medium text-secondary hover:text-accent px-2.5 py-1.5 rounded-lg hover:bg-surface transition-colors duration-200 cursor-pointer whitespace-nowrap">VFC 1&amp;2</a>
+        <a href="hv-quan-ly-tai-san.html" class="text-xs font-medium text-secondary hover:text-accent px-2.5 py-1.5 rounded-lg hover:bg-surface transition-colors duration-200 cursor-pointer whitespace-nowrap">HV Tài Sản</a>
+        <span aria-current="page" class="text-xs font-medium text-white bg-primary px-2.5 py-1.5 rounded-lg whitespace-nowrap">Coshare</span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16">
+
+    <header class="border-b border-border pb-8 mb-10">
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span class="text-[11px] font-medium text-muted border border-border bg-white px-2 py-0.5 rounded-full">Web App</span>
+        <span class="text-[11px] font-medium text-muted border border-border bg-white px-2 py-0.5 rounded-full">Marketplace</span>
+      </div>
+
+      <h1 class="font-heading font-bold text-4xl sm:text-5xl text-primary leading-tight tracking-tight">Coshare</h1>
+      <p class="text-accent font-medium text-base mt-2">Marketplace trong hệ sinh thái phúc lợi người lao động</p>
+
+      <p class="text-secondary leading-relaxed text-base max-w-2xl mt-5">
+        Web app mua sắm ưu đãi thuộc nền tảng COSHARE — kết nối Doanh nghiệp, Công đoàn và Người lao động.
+        Ba vai trò tách biệt trong cùng một app: <strong class="text-primary font-semibold">người mua</strong> đặt hàng,
+        <strong class="text-primary font-semibold">gian hàng đối tác</strong> bán sản phẩm,
+        <strong class="text-primary font-semibold">shipper</strong> giao hàng và đối soát COD.
+        Xây dựng bằng React + TypeScript, tích hợp RESTful API riêng và Firebase Analytics.
+      </p>
+
+      <div class="flex flex-wrap gap-2 mt-6" data-store-links>
+        <a href="https://coshare.vn/" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 text-xs font-medium text-secondary hover:text-accent bg-white border border-border hover:border-accent px-3 py-2 rounded-lg transition-colors duration-200 cursor-pointer">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" />
+            <path stroke-linecap="round" d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18" />
+          </svg>
+          coshare.vn
+        </a>
+      </div>
+    </header>
+
+    <section class="grid grid-cols-2 sm:grid-cols-3 gap-px bg-border border border-border rounded-xl overflow-hidden mb-12">
+      <div class="bg-white p-4">
+        <p class="text-[10px] uppercase tracking-widest text-muted mb-1">Vai trò</p>
+        <p class="text-sm font-medium text-primary">Frontend Developer</p>
+      </div>
+      <div class="bg-white p-4">
+        <p class="text-[10px] uppercase tracking-widest text-muted mb-1">Nền tảng</p>
+        <p class="text-sm font-medium text-primary">Web</p>
+      </div>
+      <div class="bg-white p-4">
+        <p class="text-[10px] uppercase tracking-widest text-muted mb-1">Người dùng</p>
+        <p class="text-sm font-medium text-primary">Người mua · Đối tác · Shipper</p>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="mb-12" data-gallery="coshare">
+      <div class="flex items-baseline justify-between gap-4 mb-5">
+        <h2 class="font-heading font-semibold text-xs tracking-[0.2em] uppercase text-muted">Giao diện — Coshare</h2>
+        <span class="no-print text-xs text-muted">6 ảnh · bấm để phóng to</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-start">
+        <img data-lightbox loading="lazy" src="../assets/projects/coshare/web-01.jpg" width="1600" height="1125" alt="Coshare — màn hình 1" class="shot w-full rounded-xl border border-border bg-white hover:border-accent transition-colors duration-200" />
+        <img data-lightbox loading="lazy" src="../assets/projects/coshare/web-02.jpg" width="1600" height="1125" alt="Coshare — màn hình 2" class="shot w-full rounded-xl border border-border bg-white hover:border-accent transition-colors duration-200" />
+        <img data-lightbox loading="lazy" src="../assets/projects/coshare/web-03.jpg" width="1600" height="1125" alt="Coshare — màn hình 3" class="shot w-full rounded-xl border border-border bg-white hover:border-accent transition-colors duration-200" />
+        <img data-lightbox loading="lazy" src="../assets/projects/coshare/web-04.jpg" width="1600" height="1125" alt="Coshare — màn hình 4" class="shot w-full rounded-xl border border-border bg-white hover:border-accent transition-colors duration-200" />
+        <img data-lightbox loading="lazy" src="../assets/projects/coshare/web-05.jpg" width="1600" height="1125" alt="Coshare — màn hình 5" class="shot w-full rounded-xl border border-border bg-white hover:border-accent transition-colors duration-200" />
+        <img data-lightbox loading="lazy" src="../assets/projects/coshare/web-06.jpg" width="1600" height="1125" alt="Coshare — màn hình 6" class="shot w-full rounded-xl border border-border bg-white hover:border-accent transition-colors duration-200" />
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="font-heading font-semibold text-xs tracking-[0.2em] uppercase text-muted mb-5">Điểm kỹ thuật nổi bật</h2>
+
+      <div class="flex flex-col gap-5">
+
+        <article class="print-keep border-l-2 border-border hover:border-accent pl-5 transition-colors duration-200">
+          <h3 class="font-heading font-semibold text-sm text-primary mb-1.5">Lớp API tự viết với failover 2 base-URL</h3>
+          <p class="text-sm text-secondary leading-relaxed">
+            Request lỗi ở base URL theo khu vực sẽ tự động retry sang base URL gốc, và tự ngắt override
+            sau nhiều lần retry thành công liên tiếp. Chuẩn hoá response theo mã trạng thái riêng của hệ thống,
+            tự đăng xuất khi gặp lỗi 401.
+          </p>
+        </article>
+
+        <article class="print-keep border-l-2 border-border hover:border-accent pl-5 transition-colors duration-200">
+          <h3 class="font-heading font-semibold text-sm text-primary mb-1.5">Giám sát lỗi real-time qua webhook</h3>
+          <p class="text-sm text-secondary leading-relaxed">
+            Lỗi API và các request quá chậm hoặc quá nặng được tự động đẩy cảnh báo tới kênh chat nội bộ theo thời gian thực,
+            có debounce chống spam và tự che thông tin nhạy cảm trước khi gửi log.
+          </p>
+        </article>
+
+        <article class="print-keep border-l-2 border-border hover:border-accent pl-5 transition-colors duration-200">
+          <h3 class="font-heading font-semibold text-sm text-primary mb-1.5">Upload ảnh trực tiếp lên Cloudflare R2</h3>
+          <p class="text-sm text-secondary leading-relaxed">
+            Ảnh được tải thẳng lên R2 qua presigned URL (không qua server app), kèm gọi một Worker riêng để tự sinh
+            thumbnail theo kích thước hiển thị — một phần trong nỗ lực tối ưu điểm Lighthouse Performance và giảm CLS.
+          </p>
+        </article>
+
+        <article class="print-keep border-l-2 border-border hover:border-accent pl-5 transition-colors duration-200">
+          <h3 class="font-heading font-semibold text-sm text-primary mb-1.5">Giỏ hàng cô lập theo tài khoản</h3>
+          <p class="text-sm text-secondary leading-relaxed">
+            Giỏ hàng lưu local theo từng tài khoản, tự khởi tạo lại khi đổi người dùng trên cùng thiết bị,
+            và validate lại giá/tồn kho với server ngay trước khi thanh toán để tránh đặt hàng với dữ liệu cũ.
+          </p>
+        </article>
+
+        <article class="print-keep border-l-2 border-border hover:border-accent pl-5 transition-colors duration-200">
+          <h3 class="font-heading font-semibold text-sm text-primary mb-1.5">Nghiệp vụ shipper &amp; đối soát COD</h3>
+          <p class="text-sm text-secondary leading-relaxed">
+            Shipper quét QR xác nhận đơn, gộp nhiều đơn thành một lô giao, rồi đối soát và nộp lại tiền mặt đã thu
+            qua mã QR chuyển khoản ngân hàng động — hệ thống theo dõi trạng thái từng phiên nộp tiền.
+          </p>
+        </article>
+
+        <article class="print-keep border-l-2 border-border hover:border-accent pl-5 transition-colors duration-200">
+          <h3 class="font-heading font-semibold text-sm text-primary mb-1.5">Phân quyền theo vai trò &amp; affiliate đa cấp</h3>
+          <p class="text-sm text-secondary leading-relaxed">
+            Ba vai trò (người mua, gian hàng đối tác, affiliate) điều hướng sang bộ giao diện và route riêng
+            ngay từ trang chủ, cộng hệ thống đối tác giới thiệu nhiều cấp đọc theo cấu hình của từng tài khoản.
+          </p>
+        </article>
+
+        <article class="print-keep border-l-2 border-border hover:border-accent pl-5 transition-colors duration-200">
+          <h3 class="font-heading font-semibold text-sm text-primary mb-1.5">Tối ưu tải dữ liệu &amp; code-splitting</h3>
+          <p class="text-sm text-secondary leading-relaxed">
+            React Query infinite-scroll tự tính trang kế tiếp theo tổng số đã tải; danh sách lọc/dropdown có lớp cache
+            TTL riêng để giảm gọi API lặp lại. Toàn bộ trang code-split bằng React.lazy, tách riêng các thư viện nặng
+            khỏi bundle chính.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="border-t border-border pt-8">
+      <h2 class="font-heading font-semibold text-xs tracking-[0.2em] uppercase text-muted mb-4">Công nghệ</h2>
+      <div class="flex flex-wrap gap-1.5">
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">React 18 + TypeScript</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">Vite</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">React Query</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">Zustand</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">React Hook Form + Zod</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">Radix UI / shadcn</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">Cloudflare R2</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">Firebase Analytics</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">html5-qrcode</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">RESTful API</span>
+      </div>
+    </section>
+
+    <nav class="no-print flex items-center justify-between gap-4 border-t border-border mt-12 pt-6">
+      <a href="hv-quan-ly-tai-san.html" class="text-sm font-medium text-secondary hover:text-accent transition-colors duration-200 cursor-pointer">← HV Quản Lý Tài Sản</a>
+      <a href="../index.html" class="text-sm font-medium text-secondary hover:text-accent transition-colors duration-200 cursor-pointer">Tất cả dự án →</a>
+    </nav>
+
+  </main>
+
+  <footer class="border-t border-border">
+    <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-xs text-muted">
+      <p>Trần Văn Thanh · Senior Mobile Developer · vanthanh300798@gmail.com</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/gallery-lightbox.js"></script>
+</body>
+</html>

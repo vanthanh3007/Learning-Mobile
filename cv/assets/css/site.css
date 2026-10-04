@@ -1,0 +1,115 @@
+/* ==========================================================================
+   Portfolio CV — Tran Van Thanh
+   Chi chua thu Tailwind KHONG lam duoc: print, lightbox, reduced-motion,
+   scroll behaviour. Moi thu khac dung utility class ngay trong HTML.
+   ========================================================================== */
+
+/* --- Chuyen dong -------------------------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ton trong nguoi dung tat hieu ung chuyen dong trong he dieu hanh. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* --- Focus ring --------------------------------------------------------- */
+
+/* Vien focus ro rang cho nguoi dieu huong bang ban phim (Tab). */
+:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* --- Gallery screenshot ------------------------------------------------- */
+
+/* Anh giu dung ty le goc — moi app upload mot co khac nhau (Sigo 3:4, Masu 720x1650).
+   Ep khung cung se cat mat noi dung nen chi dat nen cho luc anh dang tai. */
+.shot {
+  background-color: #f4f4f5;
+  height: auto;
+}
+
+/* --- Lightbox ----------------------------------------------------------- */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: rgba(9, 9, 11, 0.92);
+}
+
+.lightbox[data-open='true'] {
+  display: flex;
+}
+
+/* Rong toi da noi long de anh chup web (kho ngang) van doc duoc chu.
+   Anh dien thoai khong bi phong to theo vi da bi max-height chan truoc. */
+.lightbox__image {
+  max-width: min(100%, 72rem);
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 0.75rem;
+}
+
+/* Khoa cuon nen khi lightbox dang mo. */
+body[data-lightbox-open='true'] {
+  overflow: hidden;
+}
+
+/* --- In / xuat PDF ------------------------------------------------------ */
+
+@media print {
+  /* Buoc trinh duyet in mau nen va anh (mac dinh bi bo qua). */
+  body {
+    background: #fff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Dieu huong, nut bam, lightbox khong co y nghia tren giay. */
+  .no-print,
+  .lightbox {
+    display: none !important;
+  }
+
+  /* Khong cat doi mot du an / mot anh giua 2 trang giay. */
+  .print-keep {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Bat dau du an moi o dau trang giay. */
+  .print-break-before {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  /* Hien URL dich sau link ngoai de ban in giay van tra cuu duoc. */
+  a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.7rem;
+    color: #71717a;
+    word-break: break-all;
+  }
+
+  @page {
+    margin: 14mm;
+  }
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HV Quản Lý Tài Sản | Trần Văn Thanh</title>
+  <meta name="description" content="HV Quản Lý Tài Sản — full-stack web app quản lý vòng đời tài sản cho chuỗi nhà thuốc ~40 chi nhánh. Monorepo Turborepo, RBAC 6 vai trò, SLA engine, Socket.IO realtime." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body class="font-body bg-surface text-primary antialiased">
+
+  <nav class="no-print sticky top-4 z-30 mx-4 sm:mx-6 lg:mx-8">
+    <div class="max-w-content mx-auto bg-white/90 backdrop-blur border border-border rounded-xl shadow-sm px-4 py-2.5 flex items-center justify-between gap-4">
+      <a href="../index.html" class="flex items-center gap-1.5 font-heading font-semibold text-sm text-primary hover:text-accent transition-colors duration-200 cursor-pointer shrink-0">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+        CV
+      </a>
+      <div class="flex items-center gap-1 overflow-x-auto">
+        <a href="sigo.html" class="text-xs font-medium text-secondary hover:text-accent px-2.5 py-1.5 rounded-lg hover:bg-surface transition-colors duration-200 cursor-pointer whitespace-nowrap">Sigo</a>
+        <a href="masu.html" class="text-xs font-medium text-secondary hover:text-accent px-2.5 py-1.5 rounded-lg hover:bg-surface transition-colors duration-200 cursor-pointer whitespace-nowrap">Masu</a>
+        <a href="vfc-3-pestman.html" class="text-xs font-medium text-secondary hover:text-accent px-2.5 py-1.5 rounded-lg hover:bg-surface transition-colors duration-200 cursor-pointer whitespace-nowrap">PestMan</a>
+        <a href="vfc-1-2.html" class="text-xs font-medium text-secondary hover:text-accent px-2.5 py-1.5 rounded-lg hover:bg-surface transition-colors duration-200 cursor-pointer whitespace-nowrap">VFC 1&amp;2</a>
+        <span aria-current="page" class="text-xs font-medium text-white bg-primary px-2.5 py-1.5 rounded-lg whitespace-nowrap">HV Tài Sản</span>
+        <a href="coshare.html" class="text-xs font-medium text-secondary hover:text-accent px-2.5 py-1.5 rounded-lg hover:bg-surface transition-colors duration-200 cursor-pointer whitespace-nowrap">Coshare</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16">
+
+    <header class="border-b border-border pb-8 mb-10">
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span class="text-[11px] font-medium text-muted border border-border bg-white px-2 py-0.5 rounded-full">Side project</span>
+        <span class="text-[11px] font-medium text-muted border border-border bg-white px-2 py-0.5 rounded-full">Full-stack Web</span>
+        <span class="text-[11px] font-medium text-accent border border-accent/30 bg-accent/5 px-2 py-0.5 rounded-full">AI-assisted</span>
+      </div>
+
+      <h1 class="font-heading font-bold text-4xl sm:text-5xl text-primary leading-tight tracking-tight">HV Quản Lý Tài Sản</h1>
+      <p class="text-accent font-medium text-base mt-2">Hệ thống quản lý vòng đời tài sản — chuỗi nhà thuốc ~40 chi nhánh</p>
+
+      <p class="text-secondary leading-relaxed text-base max-w-2xl mt-5">
+        Web app quản lý tài sản doanh nghiệp: vòng đời tài sản từ lúc tạo → khấu hao → thanh lý,
+        báo cáo sự cố với SLA ba cấp, workflow phê duyệt chi phí và điều chuyển tài sản giữa các chi nhánh.
+        Vai trò của tôi là <strong class="text-primary font-semibold">thiết kế kiến trúc, viết spec và điều phối AI để implement</strong> —
+        phần lớn code do AI sinh dưới sự dẫn dắt và review của tôi.
+      </p>
+    </header>
+
+    <section class="grid grid-cols-2 sm:grid-cols-4 gap-px bg-border border border-border rounded-xl overflow-hidden mb-12">
+      <div class="bg-white p-4">
+        <p class="text-[10px] uppercase tracking-widest text-muted mb-1">Vai trò</p>
+        <p class="text-sm font-medium text-primary">Architect · Spec · Review</p>
+      </div>
+      <div class="bg-white p-4">
+        <p class="text-[10px] uppercase tracking-widest text-muted mb-1">Quy mô</p>
+        <p class="text-sm font-medium text-primary">~40 chi nhánh</p>
+      </div>
+      <div class="bg-white p-4">
+        <p class="text-[10px] uppercase tracking-widest text-muted mb-1">Phân quyền</p>
+        <p class="text-sm font-medium text-primary">6 vai trò</p>
+      </div>
+      <div class="bg-white p-4">
+        <p class="text-[10px] uppercase tracking-widest text-muted mb-1">Triển khai</p>
+        <p class="text-sm font-medium text-primary">Railway CI/CD</p>
+      </div>
+    </section>
+
+    <!-- GALLERY: web app — ảnh chụp màn hình tự bỏ vào assets/projects/hv-quan-ly-tai-san/ -->
+    <section class="mb-12" data-gallery="hv-quan-ly-tai-san">
+      <div class="flex items-baseline justify-between gap-4 mb-5">
+        <h2 class="font-heading font-semibold text-xs tracking-[0.2em] uppercase text-muted">Giao diện — HV Quản Lý Tài Sản</h2>
+        <span class="no-print text-xs text-muted">9 ảnh · bấm để phóng to</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-start">
+        <img data-lightbox loading="lazy" src="../assets/projects/hv-quan-ly-tai-san/web-01.jpg" width="1600" height="1125" alt="HV Quản Lý Tài Sản — màn hình 1" class="shot w-full rounded-xl border border-border bg-white hover:border-accent transition-colors duration-200" />
+        <img data-lightbox loading="lazy" src="../assets/projects/hv-quan-ly-tai-san/web-02.jpg" width="1600" height="1125" alt="HV Quản Lý Tài Sản — màn hình 2" class="shot w-full rounded-xl border border-border bg-white hover:border-accent transition-colors duration-200" />
+        <img data-lightbox loading="lazy" src="../assets/projects/hv-quan-ly-tai-san/web-03.jpg" width="1600" height="1125" alt="HV Quản Lý Tài Sản — màn hình 3" class="shot w-full rounded-xl border border-border bg-white hover:border-accent transition-colors duration-200" />
+        <img data-lightbox loading="lazy" src="../assets/projects/hv-quan-ly-tai-san/web-04.jpg" width="1600" height="1125" alt="HV Quản Lý Tài Sản — màn hình 4" class="shot w-full rounded-xl border border-border bg-white hover:border-accent transition-colors duration-200" />
+        <img data-lightbox loading="lazy" src="../assets/projects/hv-quan-ly-tai-san/web-05.jpg" width="1600" height="1125" alt="HV Quản Lý Tài Sản — màn hình 5" class="shot w-full rounded-xl border border-border bg-white hover:border-accent transition-colors duration-200" />
+        <img data-lightbox loading="lazy" src="../assets/projects/hv-quan-ly-tai-san/web-06.jpg" width="1600" height="1125" alt="HV Quản Lý Tài Sản — màn hình 6" class="shot w-full rounded-xl border border-border bg-white hover:border-accent transition-colors duration-200" />
+        <img data-lightbox loading="lazy" src="../assets/projects/hv-quan-ly-tai-san/web-07.jpg" width="1600" height="1125" alt="HV Quản Lý Tài Sản — màn hình 7" class="shot w-full rounded-xl border border-border bg-white hover:border-accent transition-colors duration-200" />
+        <img data-lightbox loading="lazy" src="../assets/projects/hv-quan-ly-tai-san/web-08.jpg" width="1600" height="1125" alt="HV Quản Lý Tài Sản — màn hình 8" class="shot w-full rounded-xl border border-border bg-white hover:border-accent transition-colors duration-200" />
+        <img data-lightbox loading="lazy" src="../assets/projects/hv-quan-ly-tai-san/web-09.jpg" width="1600" height="1125" alt="HV Quản Lý Tài Sản — màn hình 9" class="shot w-full rounded-xl border border-border bg-white hover:border-accent transition-colors duration-200" />
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="font-heading font-semibold text-xs tracking-[0.2em] uppercase text-muted mb-5">Điểm kỹ thuật nổi bật</h2>
+
+      <div class="flex flex-col gap-5">
+
+        <article class="print-keep border-l-2 border-border hover:border-accent pl-5 transition-colors duration-200">
+          <h3 class="font-heading font-semibold text-sm text-primary mb-1.5">Monorepo</h3>
+          <p class="text-sm text-secondary leading-relaxed">
+            pnpm workspaces + Turborepo gom frontend, backend và shared types vào một repo.
+            Type dùng chung giữa client và server nên đổi schema là compiler báo ngay ở cả hai đầu. CI/CD chạy trên Railway.
+          </p>
+        </article>
+
+        <article class="print-keep border-l-2 border-border hover:border-accent pl-5 transition-colors duration-200">
+          <h3 class="font-heading font-semibold text-sm text-primary mb-1.5">Realtime &amp; audit log</h3>
+          <p class="text-sm text-secondary leading-relaxed">
+            Socket.IO có middleware xác thực JWT — thông báo đẩy tức thì khi tài sản đổi trạng thái,
+            kèm activity feed ghi lại toàn bộ thao tác để truy vết sau này.
+          </p>
+        </article>
+
+        <article class="print-keep border-l-2 border-border hover:border-accent pl-5 transition-colors duration-200">
+          <h3 class="font-heading font-semibold text-sm text-primary mb-1.5">RBAC hai tầng</h3>
+          <p class="text-sm text-secondary leading-relaxed">
+            Sáu vai trò (admin, ops manager, kế toán, nhân viên kho…) với permission guard đặt ở
+            <strong class="text-primary font-semibold">cả backend</strong> (middleware chặn request) và
+            <strong class="text-primary font-semibold">frontend</strong> (route guard + ẩn menu).
+            Frontend chỉ lo trải nghiệm; backend mới là nơi thực sự chặn.
+          </p>
+        </article>
+
+        <article class="print-keep border-l-2 border-border hover:border-accent pl-5 transition-colors duration-200">
+          <h3 class="font-heading font-semibold text-sm text-primary mb-1.5">SLA engine</h3>
+          <p class="text-sm text-secondary leading-relaxed">
+            Cấu hình số giờ phản hồi và số giờ hoàn thành theo mức độ nghiêm trọng của sự cố.
+            Hệ thống tự đánh dấu quá hạn và hiển thị badge trạng thái, không cần ai theo dõi thủ công.
+          </p>
+        </article>
+
+        <article class="print-keep border-l-2 border-border hover:border-accent pl-5 transition-colors duration-200">
+          <h3 class="font-heading font-semibold text-sm text-primary mb-1.5">Workflow phê duyệt</h3>
+          <p class="text-sm text-secondary leading-relaxed">
+            Mỗi phiếu chi phí đi qua vòng đời nháp → chờ duyệt → duyệt/từ chối,
+            với chuỗi người duyệt cấu hình riêng cho từng nhà thuốc.
+          </p>
+        </article>
+
+        <article class="print-keep border-l-2 border-border hover:border-accent pl-5 transition-colors duration-200">
+          <h3 class="font-heading font-semibold text-sm text-primary mb-1.5">Lưu trữ ảnh</h3>
+          <p class="text-sm text-secondary leading-relaxed">
+            Cloudflare R2 (tương thích S3) cho upload/xoá ảnh, có chuyển đổi HEIC (ảnh iPhone) và cron job dọn file mồ côi.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="border-t border-border pt-8">
+      <h2 class="font-heading font-semibold text-xs tracking-[0.2em] uppercase text-muted mb-4">Công nghệ</h2>
+      <div class="flex flex-wrap gap-1.5">
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">React 18 + TypeScript</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">Node.js + Express</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">PostgreSQL + Prisma</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">Socket.IO</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">Turborepo Monorepo</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">Cloudflare R2</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">TanStack Query</span>
+        <span class="text-xs text-secondary bg-white border border-border px-2.5 py-1 rounded-md font-medium">Zustand</span>
+      </div>
+    </section>
+
+    <nav class="no-print flex items-center justify-between gap-4 border-t border-border mt-12 pt-6">
+      <a href="vfc-1-2.html" class="text-sm font-medium text-secondary hover:text-accent transition-colors duration-200 cursor-pointer">← VFC 1 &amp; 2</a>
+      <a href="coshare.html" class="text-sm font-medium text-secondary hover:text-accent transition-colors duration-200 cursor-pointer">Coshare →</a>
+    </nav>
+
+  </main>
+
+  <footer class="border-t border-border">
+    <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-xs text-muted">
+      <p>Trần Văn Thanh · Senior Mobile Developer · vanthanh300798@gmail.com</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/gallery-lightbox.js"></script>
+</body>
+</html>
